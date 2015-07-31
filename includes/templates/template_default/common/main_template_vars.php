@@ -18,10 +18,10 @@
 
   if (file_exists(DIR_WS_MODULES . 'pages/' . $current_page_base . '/main_template_vars.php')) {
     $body_code = DIR_WS_MODULES . 'pages/' . $current_page_base . '/main_template_vars.php';
-	echo 'body_code1'.$body_code;
+	//echo 'body_code1'.$body_code;
   } else {
     $body_code = $template->get_template_dir('tpl_' . preg_replace('/.php/', '',$_GET['main_page']) . '_default.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_' . $_GET['main_page'] . '_default.php';
-	echo 'body_code2'.$body_code;
+	//echo 'body_code2'.$body_code;
   }
   
 ?>

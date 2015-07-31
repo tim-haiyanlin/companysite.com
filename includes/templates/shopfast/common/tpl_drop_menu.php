@@ -42,7 +42,8 @@
             ?>
 			
 			<li id='categories' class="<?php if($pg=='categories') { echo "tab_active";}?>" >
-            	<a href="#<?php //echo zen_href_link(FILENAME_DEFAULT."&cPath=".$categories_id."&pg=categories"); ?>">
+			    <!--add 'categories' link  2015 07 31 tim-->
+            	<a href="<?php echo zen_href_link("product_show_and_category&pg=product_show_and_category"); ?>">
 				<?php echo HEADER_TITLE_CATEGORIES; ?>
                 </a>
 			<?php			
