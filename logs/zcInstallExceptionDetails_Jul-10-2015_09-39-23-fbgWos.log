@@ -1,0 +1,40 @@
+---------------
+Jul 10 2015 9:39 -- inspect
+CURL requires SSL support. Please notify webmaster or hosting company. 35 => SSL connect error
+
+---------------
+Jul 10 2015 9:41 -- inspect
+CURL requires SSL support. Please notify webmaster or hosting company. 35 => SSL connect error
+
+---------------
+Jul 10 2015 9:42 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:43 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:46 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:47 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:47 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:49 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:49 -- database_setup
+FATAL: Connection to Database failed - 
+
+---------------
+Jul 10 2015 9:52 -- database_setup
+FATAL: Connection to Database failed - 
+
