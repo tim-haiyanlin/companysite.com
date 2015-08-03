@@ -8,8 +8,8 @@
     }
 	 $list_of_products = substr($list_of_products, 0, -2); // remove trailing comma
   }
-
-
+//when father categories has product 
+ if(!empty($list_of_products)){
   $listing_sql = "SELECT DISTINCT p.products_type, p.products_id,  pd.products_name, p.products_image, p.products_price,
    p.products_tax_class_id, p.products_date_added, m.manufacturers_name, p.products_model, p.products_quantity, p.products_weight,
    p.product_is_call, p.product_is_always_free_shipping, p.products_qty_box_status, p.master_categories_id, m.manufacturers_id";
@@ -31,6 +31,8 @@
 
 
 $company_products_split = new splitPageResults($listing_sql, 60); 
+}else//when father categories has no product 
+{ $company_products_split='';}
 // print_r($productsInCategory);
 
 /*
