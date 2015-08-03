@@ -6,9 +6,6 @@ $sql="SELECT * FROM ".TABLE_CATEGORIES." c, ".TABLE_CATEGORIES_DESCRIPTION." cd 
 AND c.categories_id = cd.categories_id and c.categories_status=1 ORDER BY sort_order asc ";
 //echo $sql;
 $companyCategories = $db->Execute($sql);
-$flag_disable_left = true ;
-$flag_disable_right = false; 
-
 
 ?>
 
@@ -26,7 +23,7 @@ $flag_disable_right = false;
  * @version $Id: header_php.php 6912 2007-09-02 02:23:45Z drbyte $
  */
 require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php'));
-$breadcrumb->add(NAVBAR_TITLE);
+
 // display order dropdown
 $disp_order_default = PRODUCT_FEATURED_LIST_SORT_DEFAULT;
 

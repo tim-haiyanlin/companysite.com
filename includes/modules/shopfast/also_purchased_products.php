@@ -10,7 +10,8 @@
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
-}
+}
+
 if (isset($_GET['products_id']) && SHOW_PRODUCT_INFO_COLUMNS_ALSO_PURCHASED_PRODUCTS > 0 && MIN_DISPLAY_ALSO_PURCHASED > 0) {
 
   $also_purchased_products = $db->Execute(sprintf(SQL_ALSO_PURCHASED, (int)$_GET['products_id'], (int)$_GET['products_id']));
@@ -31,10 +32,29 @@ if (isset($_GET['products_id']) && SHOW_PRODUCT_INFO_COLUMNS_ALSO_PURCHASED_PROD
     }
 
     while (!$also_purchased_products->EOF) {
-		$products_price = zen_get_products_display_price($also_purchased_products->fields['products_id']);
+		$products_price = zen_mb_get_products_display_price_from_company($also_purchased_products->fields['products_id']);
       $also_purchased_products->fields['products_name'] = zen_get_products_name($also_purchased_products->fields['products_id']);
 	  $products_name = $also_purchased_products->fields['products_name'];
-		$products_name = ltrim(substr($products_name, 0, $product_name_length) . '');
+		$products_name = ltrim(substr($products_name, 0, $product_name_length) . '');
+  
+      //show product model,define $products_model 2015 08 03 tim
+	$products_model=$also_purchased_products->fields['products_model'];
+
+	$products_model = ltrim(substr($products_model, 0, '25') . ''); //Trims and Limits the model name 25 from document 
+	
+	$products_model='<div class="products_model_company">SKU: '.$products_model.'</div>';
+        
+		
+           //define our normal price 2015 08 03 
+           $show_normal_price='<strong>'.$products_price['show_normal_price'].'</strong>'; 
+           if(!empty($products_price['show_special_price'])) $show_normal_price.='<strong>'.$products_price['show_special_price'].'</strong>';
+
+		 //define our lc_text company price 2015 08 03 
+		 $ourCompanyDiscount='';
+           if(!empty($products_price['show_special_price'])&&!empty($products_price['show_sale_discount']))
+			  {
+				 $ourCompanyDiscount= $products_price['show_sale_discount'];
+			  }
 	
       $products_description = zen_trunc_string(zen_clean_html(stripslashes(zen_get_products_description($also_purchased_products->fields['products_id'], $_SESSION['languages_id']))), PRODUCT_LIST_DESCRIPTION); //To Display Product Desc 
 	$products_description = ltrim(substr($products_description, 0, $product_desc_length) . '..'); //Trims and Limits the desc
@@ -44,13 +64,15 @@ if (isset($_GET['products_id']) && SHOW_PRODUCT_INFO_COLUMNS_ALSO_PURCHASED_PROD
 	  $list_box_contents[$row][$col] = array('params' => 'class="centerBoxContentsAlsoPurch wow fadeInUp animated" data-wow-duration="2s"', 'text' => (($also_purchased_products->fields['products_image'] == '' and PRODUCTS_IMAGE_NO_IMAGE_STATUS == 0) ? '' : '
 	  		<div class="product">
 				<a class="product-link" href="' . zen_href_link(zen_get_info_page($also_purchased_products->fields['products_id']), 'products_id=' . $also_purchased_products->fields['products_id']) . '">
-					<div class="product-thumbnail">'.zen_image(DIR_WS_IMAGES . $also_purchased_products->fields['products_image'], $also_purchased_products->fields['products_name'], IMAGE_PRODUCT_LISTING_HEIGHT, IMAGE_PRODUCT_LISTING_WIDTH).
-						'<div class="product_price">' . $products_price . '</div>
+					<div class="product-thumbnail">'.zen_image(DIR_WS_IMAGES . $also_purchased_products->fields['products_image'], $also_purchased_products->fields['products_name'], IMAGE_PRODUCT_LISTING_HEIGHT, IMAGE_PRODUCT_LISTING_WIDTH).
+						
+					'<div class="caption bottom-left">'.$ourCompanyDiscount.'</div>
+						
 					</div>
 				</a>'.$wishlist_link.'
 				<div class="product-name-desc">
 					<div class="product_name">') .  
-						'<a href="' . zen_href_link(zen_get_info_page($also_purchased_products->fields['products_id']), 'products_id=' . $also_purchased_products->fields['products_id']) . '">' . $products_name . '</a>'
+						'<a href="' . zen_href_link(zen_get_info_page($also_purchased_products->fields['products_id']), 'products_id=' . $also_purchased_products->fields['products_id']) . '">' . $products_name . '</a>'.$products_model.'<div>'.$show_normal_price.'</div>'
 			.zen_get_buy_now_button($also_purchased_products->fields['products_id'],'<a data-original-title="Add to Cart" class="product_cart_image" href= '.zen_href_link(zen_get_info_page($also_purchased_products->fields['products_id']), 'cPath=' . $productsInCategory[$also_purchased_products->fields['products_id']] . '&products_id=' . $also_purchased_products->fields['products_id']). '></a>').'
 					</div>
 				</div>

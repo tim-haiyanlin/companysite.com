@@ -10,7 +10,7 @@
 <?php
 // the following IF statement can be duplicated/modified as needed to set additional flags
 // Code to Disable the Left and Right Column from Page
-  if (in_array($current_page_base,explode(",",'product_info,products_new,products_all,specials,featured_products,checkout_shipping_address,checkout_payment,checkout_shipping,checkout_payment_address,checkout_confirmation,advanced_search_result,password_forgotten,account,account_history,account_history_info,account_edit,address_book,address_book_process,account_password,account_newsletters,account_notifications,gv_faq,gv_redeem,discount_coupon')) ) {
+  if (in_array($current_page_base,explode(",",'product_info,products_new,products_all,specials,featured_products,checkout_shipping_address,checkout_payment,checkout_shipping,checkout_payment_address,checkout_confirmation,advanced_search_result,password_forgotten,account,account_history,account_history_info,account_edit,address_book,address_book_process,account_password,account_newsletters,account_notifications,gv_faq,gv_redeem,discount_coupon,product_show_and_category')) ) {
 	$flag_disable_left = true;
   }
   if (in_array($current_page_base,explode(",",'login,create_account,shopping_cart,compare'))) {

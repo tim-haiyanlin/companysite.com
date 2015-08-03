@@ -134,4 +134,4 @@ require($template->get_template_dir('/tpl_modules_products_featured_listing.php'
 ?>
 </form>
 <?php } // end if form is made ?>
-</div>
+</div></div>
