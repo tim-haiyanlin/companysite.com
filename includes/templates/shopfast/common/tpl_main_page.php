@@ -45,6 +45,7 @@
   }
   require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
   <!-- Code to Display Home Page  -->
+     
   		<?php if ($this_is_home_page) { 
 			$flag_disable_right = true;
 			$flag_disable_left = true;

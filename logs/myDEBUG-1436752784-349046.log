@@ -1,2 +1,0 @@
-[12-Jul-2015 18:59:52 America/Phoenix] PHP Warning:  require(/home/content/98/12335998/html/includes/templates/shopfast/common): failed to open stream: No such file or directory in /home/content/98/12335998/html/includes/templates/shopfast/common/tpl_main_slideshow.php on line 57
-[12-Jul-2015 18:59:52 America/Phoenix] PHP Fatal error:  require(): Failed opening required 'includes/templates/shopfast/common/' (include_path='.:/usr/local/php5_3/lib/php') in /home/content/98/12335998/html/includes/templates/shopfast/common/tpl_main_slideshow.php on line 57

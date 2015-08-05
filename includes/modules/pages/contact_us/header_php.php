@@ -113,8 +113,7 @@ if (CONTACT_US_LIST !=''){
 }
 
 // include template specific file name defines
-$define_page = zen_get_file_directory(DIR_WS_LANGUAGES . $_SESSION['language'] . '/html_includes/', FILENAME_DEFINE_CONTACT_US, 'false');
-
+$define_page = zen_get_file_directory(DIR_WS_LANGUAGES . $_SESSION['language'] . '/html_includes/', FILENAME_DEFINE_CONTACT_US, 'false');
 $breadcrumb->add(NAVBAR_TITLE);
 
 // This should be the last line of the script:

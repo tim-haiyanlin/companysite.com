@@ -4,7 +4,7 @@
  * @copyright Copyright 2003-2014 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * File Built by zc_install on 2015-07-10 08:03:15
+ * File Built by zc_install on 2015-07-10 09:54:23
  */
 
 
@@ -15,10 +15,10 @@
  * WE RECOMMEND THAT YOU USE SSL PROTECTION FOR YOUR ENTIRE ADMIN:
  * To do that, make sure you use a "https:" URL for BOTH the HTTP_SERVER and HTTPS_SERVER entries:
  */
-  define('HTTP_SERVER', 'http://companysite.com');
-  define('HTTPS_SERVER', 'https://companysite.com');
-  define('HTTP_CATALOG_SERVER', 'http://companysite.com');
-  define('HTTPS_CATALOG_SERVER', 'https://companysite.com');
+  define('HTTP_SERVER', 'http://www.wofachina.com');
+  define('HTTPS_SERVER', 'https://www.wofachina.com');
+  define('HTTP_CATALOG_SERVER', 'http://www.wofachina.com');
+  define('HTTPS_CATALOG_SERVER', 'https://www.wofachina.com');
 
   // secure webserver for admin?  Valid choices are 'true' or 'false' (including quotes).
   define('ENABLE_SSL_ADMIN', 'false');
@@ -49,10 +49,10 @@
 // * DIR_FS_* = Filesystem directories (local/physical)
   define('DIR_FS_ADMIN', preg_replace('#.includes$#', '', realpath(dirname(__FILE__) . '/../') . '/'));
   //the following path is a COMPLETE path to your Zen Cart files. eg: /var/www/vhost/accountname/public_html/store/
-  define('DIR_FS_CATALOG', 'C:/xampp/htdocs/workspace/companysite.com/');
+  define('DIR_FS_CATALOG', '/home/content/98/12335998/html/');
 
   //the following path is a COMPLETE path to the /logs/ folder  eg: /var/www/vhost/accountname/public_html/store/logs ... and no trailing slash
-  define('DIR_FS_LOGS', 'C:/xampp/htdocs/workspace/companysite.com/logs');
+  define('DIR_FS_LOGS', '/home/content/98/12335998/html/logs');
 
   define('DIR_FS_CATALOG_LANGUAGES', DIR_FS_CATALOG . 'includes/languages/');
   define('DIR_FS_CATALOG_IMAGES', DIR_FS_CATALOG . 'images/');
@@ -66,10 +66,10 @@
   define('DB_TYPE', 'mysql');
   define('DB_PREFIX', '');
   define('DB_CHARSET', 'utf8');
-  define('DB_SERVER', 'localhost');
-  define('DB_SERVER_USERNAME', 'root');
-  define('DB_SERVER_PASSWORD', '');
-  define('DB_DATABASE', 'companysite');
+  define('DB_SERVER', '68.178.143.156');
+  define('DB_SERVER_USERNAME', 'firstwholesale');
+  define('DB_SERVER_PASSWORD', 'timLIN123456789#');
+  define('DB_DATABASE', 'firstwholesale');
 
   // The next 2 "defines" are for SQL cache support.
   // For SQL_CACHE_METHOD, you can select from:  none, database, or file
@@ -77,7 +77,7 @@
   // or webserver user has write privileges (chmod 666 or 777). We recommend using the "cache" folder inside the Zen Cart folder
   // ie: /path/to/your/webspace/public_html/zen/cache   -- leave no trailing slash  
   define('SQL_CACHE_METHOD', 'none'); 
-  define('DIR_FS_SQL_CACHE', 'C:/xampp/htdocs/workspace/companysite.com/cache');
+  define('DIR_FS_SQL_CACHE', '/home/content/98/12335998/html/cache');
 
 
 // Define the webserver and path parameters

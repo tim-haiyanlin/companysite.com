@@ -1,1 +1,0 @@
-[31-Jul-2015 21:08:19 Europe/Berlin] PHP Fatal error:  Call to a member function MoveNext() on a non-object in C:\xampp\htdocs\workspace\companysite.com\includes\templates\shopfast\templates\tpl_product_show_and_category_default.php on line 7
