@@ -65,7 +65,19 @@ require(DIR_WS_MODULES . 'prod_cat_header_code.php');
 						$slideshow_result = $db->Execute($slideshow_insert);
 						move_uploaded_file( $file_tmp,"../includes/templates/" . $template_dir . "/images/slideshow/" . $slideshow_image);
 					}
-			}
+			}
+				
+		//Delete selected Slideshow details
+		if(isset($_POST['slideshow_image_id'])){
+			foreach($_POST['slideshow_image_id'] as $key => $del_id ) {
+				if(isset($_POST['slideshow_image_id'])){
+					$checkboxAll = $_POST['slideshow_image_id'];
+					$slideshow_image_delete = "DELETE FROM " . DB_PREFIX.shopfast_slideshow . " where id='$del_id'";
+					$slideshow_delete_result = $db->Execute($slideshow_image_delete);
+				}
+			}
+		}
+		
 	
 	if(! isset($_POST['shopfast_settings']))
 	{
@@ -164,18 +176,7 @@ require(DIR_WS_MODULES . 'prod_cat_header_code.php');
 		$shopfast_query = "UPDATE " . DB_PREFIX.shopfast. " SET theme_color='$theme_color', logo_image='$logo_image', store_address='$store_address', store_skype='$store_skype', store_map='$store_map', newsletter_text='$newsletter_text', newsletter_details='$newsletter_details', aboutus_text='$aboutus_text', store_contact='$store_contact', store_email='$store_email', store_copyright='$store_copyright', facebook_link='$facebook_link', twitter_link='$twitter_link', skype_link='$skype_link', google_link='$google_link', rss_link='$rss_link', linkedin_link='$linkedin_link', pinterest_link='$pinterest_link', youtube_link='$youtube_link', instagram_link='$instagram_link', payment_image='$payment_image', facebook_box='$facebook_box',twitter_box='$twitter_box',featured_category='$featured_category',display_featured_category='$display_featured_category',display_our_brands='$display_our_brands',display_main_page='$display_main_page',display_footer_row_1='$display_footer_row_1',display_footer_row_2='$display_footer_row_2',product_name_length='$product_name_length',product_desc_length='$product_desc_length' WHERE id=1";
 		
 		$shopfast_result = $db->Execute($shopfast_query);
-		
-		//Delete selected Slideshow details
-		if(isset($_POST['slideshow_image_id'])){
-			foreach($_POST['slideshow_image_id'] as $key => $del_id ) {
-				if(isset($_POST['slideshow_image_id'])){
-					$checkboxAll = $_POST['slideshow_image_id'];
-					$slideshow_image_delete = "DELETE FROM " . DB_PREFIX.shopfast_slideshow . " where id='$del_id'";
-					$slideshow_delete_result = $db->Execute($slideshow_image_delete);
-				}
-			}
-		}
-		
+	
 		//Update selected Slideshow details
 		$k=0;
 		if(isset($_POST['slideshow_caption_edit'][$k]) || isset($_POST['slideshow_image_update'][$k])) {
